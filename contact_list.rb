@@ -16,7 +16,7 @@ end
 get "/contacts" do
   @contacts = YAML.load_file("contacts.yml")
 
-  # erb :contacts, layout: :layout
+  erb :contacts, layout: :layout
 end
 
 # view a single contact
@@ -25,12 +25,12 @@ get "/contacts/:name" do
   @contact_name = params[:name]
   @details = @contacts[@contact_name]
 
-  # erb :contact, layout: :layout
+  erb :contact, layout: :layout
 end
 
 # render new contact page
 get "/contacts/new" do
-  # erb :new, layout: :layout
+  erb :new, layout: :layout
 end
 
 # create a new contact
@@ -50,7 +50,7 @@ get "contacts/:name/edit" do
   @contact_name = params[:name]
   @details = @contacts[@contact_name]
 
-  # erb :edit, layout: :layout
+  erb :edit, layout: :layout
 end
 
 # edit a contact
