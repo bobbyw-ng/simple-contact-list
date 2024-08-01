@@ -1,0 +1,16 @@
+---
+andrea:
+  phone: '987654321'
+  email: andrea@andrea.com
+  address: 456 Bet Drive
+  category: family,
+luca:
+  phone: '123123123'
+  email: luca@luca.com
+  address: 789 Gamma Drive
+  category: friend
+ilke:
+  phone: '787878787878'
+  email: ilke@ilke.com
+  address: 123 Hyphen Road
+  cateogory: family
