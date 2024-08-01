@@ -40,7 +40,10 @@ post "/contacts" do
   email = params[:email]
   address = params[:address]
 
-  # append data to yaml file
+  contacts = YAML.load_file("contacts.yml")
+  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address}
+  File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
+
   redirect "/contacts"
 end
 
@@ -60,7 +63,10 @@ post "contacts/:name/edit" do
   email = params[:email]
   address = params[:address]
 
-  # edit data in yaml file based on new values from form
+  contacts = YAML.load_file("contacts.yml")
+  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address}
+  File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
+
   redirect "/contacts"
 end
 
@@ -69,6 +75,8 @@ post "contacts/:name/delete" do
   contacts = YAML.load_file("contacts.yml")
   contact_name = params[:name]
 
-  # delete contact and details from yaml file
+  contacts.delete(contact_name)
+  File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
+
   redirect "/contacts"
 end
