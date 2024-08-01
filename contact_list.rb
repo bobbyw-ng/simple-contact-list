@@ -39,9 +39,10 @@ post "/contacts" do
   phone = params[:phone]
   email = params[:email]
   address = params[:address]
+  category = params[:category]
 
   contacts = YAML.load_file("contacts.yml")
-  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address}
+  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
   redirect "/contacts"
@@ -62,9 +63,10 @@ post "contacts/:name/edit" do
   phone = params[:phone]
   email = params[:email]
   address = params[:address]
+  category = params[:category]
 
   contacts = YAML.load_file("contacts.yml")
-  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address}
+  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
   redirect "/contacts"
