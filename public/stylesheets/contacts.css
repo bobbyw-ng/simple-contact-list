@@ -14,16 +14,33 @@ main {
 	padding: 32px 16px 32px 16px;
 }
 
+input, label {
+	display: block;
+}
+
+label {
+	font-weight: 700;
+	margin-bottom: 0px;
+}
+
+.form-group {
+	margin-bottom: 16px;
+}
+
 .container {
 	max-width: 800px;
 }
 
 #subheader {
 	display: flex;
-	padding: 4px 8px 4px 12px;
+	padding: 4px 0px 4px 12px;
 	align-items: center;
 	margin-bottom: 16px;
 	justify-content: space-between;
+}
+
+#contact-details {
+	padding: 16px;
 }
 
 .list-name {
