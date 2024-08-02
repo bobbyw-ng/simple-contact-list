@@ -6,6 +6,10 @@
 	<div id="contact-details">
 		<form>
 	  		<div class="form-group">
+	  			<label for="name">Name</label>
+	  			<input class="form-control" type="text" id="name" name="name" value="<%= @contact_name %>"></input>
+	  		</div>
+	  		<div class="form-group">
 	  			<label for="phone">Phone</label>
 	  			<input class="form-control" type="tel" id="phone" name="phone" value="<%= @details["phone"] %>"></input>
 	  		</div>
