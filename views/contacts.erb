@@ -1,0 +1,21 @@
+<div class="container">
+	<div id="subheader">
+		<h1>All Contacts</h1>
+		<a href="/contacts/new" class="btn btn-primary btn-md">
+			New Contact
+		</a>
+	</div>
+
+	<ul class="list-name">
+		<% @contact_names.each do |contact_name| %>
+			<li class="list-name-item">
+				<a href="/contacts/<%= contact_name %>"><%= contact_name %></a>
+				<div>
+					<button type="button" class="btn btn-link btn-sm">
+						<i class="fa-solid fa-trash"></i>
+					</button>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>
