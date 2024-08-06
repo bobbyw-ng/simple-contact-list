@@ -3,14 +3,19 @@ andrea:
   phone: '987654321'
   email: andrea@andrea.com
   address: 456 Bet Drive
-  category: family,
+  category: family
 luca:
   phone: '123123123'
   email: luca@luca.com
   address: 789 Gamma Drive
-  category: friend
+  category: friends
 ilke:
   phone: '787878787878'
   email: ilke@ilke.com
   address: 123 Hyphen Road
-  cateogory: family
+  category: work
+jo:
+  phone: '787878765465'
+  email: jo@jo.com
+  address: 123 Dash Road
+  category: work

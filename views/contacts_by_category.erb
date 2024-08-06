@@ -1,13 +1,13 @@
 <div class="container">
 	<div id="subheader">
-		<h1>All Contacts</h1>
+		<h1><%= @category %></h1>
 		<a href="/contacts/new" class="btn btn-primary btn-md">
 			New Contact
 		</a>
 	</div>
-
-	<ul class="list-name">
-		<% @contact_names.each do |contact_name| %>
+  
+<ul class="list-name">
+		<% @selected_names.each do |contact_name| %>
 			<li class="list-name-item">
 				<a href="/contacts/<%= contact_name %>"><%= contact_name %></a>
 				<div>
@@ -18,11 +18,3 @@
 			</li>
 		<% end %>
 	</ul>
-
-  <form action="/contacts/category" method="get">
-    <p> View contacts by category: </p>
-    <input name="category" value="<%= params[:category] %>"/>
-    <button type="submit" class="btn btn-primary btn-sm">Show</button>
-  </form>
-</div>
-
