@@ -1,13 +1,13 @@
 <div class="container">
 	<div id="subheader">
-		<h1><%= @contact_name %></h1>
+		<h1><%= @details["name"] %></h1>
 	</div>
 
 	<div id="contact-details">
-		<form>
+		<form action="/contacts/<%= @id %>/edit" method="post">
 	  		<div class="form-group">
 	  			<label for="name">Name</label>
-	  			<input class="form-control" type="text" id="name" name="name" value="<%= @contact_name %>"></input>
+	  			<input class="form-control" type="text" id="contact_name" name="contact_name" value="<%= @details["name"] %>"></input>
 	  		</div>
 	  		<div class="form-group">
 	  			<label for="phone">Phone</label>
