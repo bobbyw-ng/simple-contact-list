@@ -22,9 +22,13 @@
 	</ul>
 
   <form action="/contacts/category" method="get">
-    <p> View contacts by category: </p>
-    <input name="category" value="<%= params[:category] %>"/>
-    <button type="submit" class="btn btn-primary btn-sm">Show</button>
+    <label for="category">View contacts by category:</label>
+    <select name="category" id="category">
+      <option value="friends">Friends</option>
+      <option value="family">Family</option>
+      <option value="work">Work</option>
+    </select>
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
   </form>
 </div>
 
