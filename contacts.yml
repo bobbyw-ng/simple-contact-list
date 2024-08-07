@@ -4,7 +4,7 @@
   phone: '987654321'
   email: andrea@andrea.com
   address: 456 Bet Drive
-  category: Family
+  category: ''
 1:
   name: Luca
   phone: '123123123'
@@ -28,4 +28,28 @@
   phone: '010101010'
   email: tee@hee.mj
   address: Neverland Woo
+  category: ''
+12:
+  name: Steve
+  phone: ''
+  email: ''
+  address: ''
+  category: ''
+13:
+  name: Boistrous Crab
+  phone: ''
+  email: ''
+  address: ''
+  category: ''
+15:
+  name: Animal
+  phone: ''
+  email: ''
+  address: ''
+  category: ''
+16:
+  name: Bobby
+  phone: ''
+  email: wejoiwejio@oijfiowef
+  address: ''
   category: ''
