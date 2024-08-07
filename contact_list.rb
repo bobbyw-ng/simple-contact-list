@@ -41,7 +41,7 @@ end
 get "/contacts/category" do
   contacts = YAML.load_file("contacts.yml")
   @category = params[:category].capitalize
-  @selected_names = contacts.select { |_, details| details["category"] == params[:category] }.keys
+  @selected_names = contacts.select { |id, details| details["category"] == params[:category] }.values.map { |details| details["name"] }
   
   erb :contacts_by_category, layout: :layout
 end

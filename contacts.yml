@@ -4,28 +4,28 @@
   phone: '987654321'
   email: andrea@andrea.com
   address: 456 Bet Drive
-  category:
+  category: friends
 1:
   name: Luca
   phone: '123123123'
   email: luca@luca.com
   address: 789 Gamma Drive
-  category: friend
+  category: friends
 2:
   name: Ilke
   phone: '787878787878'
   email: ilke@ilke.com
   address: 123 Hyphen Road
-  cateogory: family
+  category: family
 3:
   name: Seamus Healey
   phone: '123466'
   email: seamus@oreilly.lck
   address: 123 Sesame Street
-  category:
+  category: work
 4:
   name: Silly Jean
   phone: '010101010'
   email: tee@hee.mj
   address: Neverland Woo
-  category:
+  category: work
