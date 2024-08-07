@@ -1,21 +1,31 @@
 ---
-andrea:
+0:
+  name: Andrea Bocelli
   phone: '987654321'
   email: andrea@andrea.com
   address: 456 Bet Drive
-  category: family
-luca:
+  category:
+1:
+  name: Luca
   phone: '123123123'
   email: luca@luca.com
   address: 789 Gamma Drive
-  category: friends
-ilke:
+  category: friend
+2:
+  name: Ilke
   phone: '787878787878'
   email: ilke@ilke.com
   address: 123 Hyphen Road
-  category: work
-jo:
-  phone: '787878765465'
-  email: jo@jo.com
-  address: 123 Dash Road
-  category: work
+  cateogory: family
+3:
+  name: Seamus Healey
+  phone: '123466'
+  email: seamus@oreilly.lck
+  address: 123 Sesame Street
+  category:
+4:
+  name: Silly Jean
+  phone: '010101010'
+  email: tee@hee.mj
+  address: Neverland Woo
+  category:

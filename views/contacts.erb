@@ -7,13 +7,15 @@
 	</div>
 
 	<ul class="list-name">
-		<% @contact_names.each do |contact_name| %>
+		<% @contacts.each do |key, value| %>
 			<li class="list-name-item">
-				<a href="/contacts/<%= contact_name %>"><%= contact_name %></a>
+				<a href="/contacts/<%= key %>"><%= value["name"] %></a>
 				<div>
-					<button type="button" class="btn btn-link btn-sm">
-						<i class="fa-solid fa-trash"></i>
-					</button>
+					<form action="/contacts/<%= key %>/delete" method="post">
+						<button type="submit" class="btn btn-link btn-sm">
+							<i class="fa-solid fa-trash"></i>
+						</button>
+					</form>
 				</div>
 			</li>
 		<% end %>

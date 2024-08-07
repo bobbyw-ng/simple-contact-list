@@ -19,16 +19,17 @@ get "/" do
   redirect "/contacts"
 end
 
-helpers do
-  def generate_id # generates unique user id
-    contacts = YAML.load_file("contacts.yml")
-    contacts.keys.max + 1
-  end
-end
+# helpers do
+#   def generate_id # generates unique user id
+#     contacts = YAML.load_file("contacts.yml")
+#     contacts.select {|contact| contact["name"] }.max
+#   end
+# end
 
 get "/contacts" do
-  @contacts = YAML.load_file("contacts.yml")
-
+  contacts = YAML.load_file("contacts.yml")
+  puts contacts
+  @contact_names = contacts.values["name"]
   erb :contacts, layout: :layout
 end
 
@@ -37,25 +38,17 @@ get "/contacts/new" do
   erb :new, layout: :layout
 end
 
-# select a category to display
-get "/contacts/category" do
-  contacts = YAML.load_file("contacts.yml")
-  @category = params[:category].capitalize
-  @selected_names = contacts.select { |_, details| details["category"] == params[:category] }.keys
-  
-  erb :contacts_by_category, layout: :layout
-end
-
 # view a single contact
-get "/contacts/:id" do
-  contacts = YAML.load_file("contacts.yml")
-  @details = contacts.fetch(params[:id].to_i)
+get "/contacts/:name" do
+  @contacts = YAML.load_file("contacts.yml")
+  @contact_name = params[:name]
+  @details = @contacts[@contact_name]
 
   erb :contact, layout: :layout
 end
 
 # create a new contact
-post "/contacts/new" do
+post "/contacts" do
   contact_name = params[:contact_name]
   phone = params[:phone]
   email = params[:email]
@@ -63,23 +56,23 @@ post "/contacts/new" do
   category = params[:category]
 
   contacts = YAML.load_file("contacts.yml")
-  contacts[generate_id] = {"name" => contact_name, "phone" => phone, "email" => email, "address" => address, "category" => category}
+  contacts[contact_name] = {"phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
   redirect "/contacts"
 end
 
 # render the edit contact page
-get "/contacts/:id/edit" do
-  contacts = YAML.load_file("contacts.yml")
-  @details = contacts.fetch(params[:id].to_i)
-  @id = params[:id]
+get "/contacts/:name/edit" do
+  @contacts = YAML.load_file("contacts.yml")
+  @contact_name = params[:name]
+  @details = @contacts[@contact_name]
 
   erb :edit, layout: :layout
 end
 
 # edit a contact
-post "/contacts/:id/edit" do
+post "/contacts/:name/edit" do
   contact_name = params[:contact_name]
   phone = params[:phone]
   email = params[:email]
@@ -87,24 +80,19 @@ post "/contacts/:id/edit" do
   category = params[:category]
 
   contacts = YAML.load_file("contacts.yml")
-  contacts[params[:id].to_i] = {"name" => contact_name, "phone" => phone, "email" => email, "address" => address, "category" => category}
-  File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
-
-  redirect "/contacts/#{params[:id]}"
-end
-
-# delete a contact
-post "/contacts/:id/delete" do
-  contacts = YAML.load_file("contacts.yml")
-  contact_id = params[:id]
-
-  contacts.delete(contact_id.to_i)
-  puts contact_id
-  puts contacts
+  contacts[contact_name] = {"name" => contact_name, "phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
   redirect "/contacts"
 end
 
+# delete a contact
+post "/contacts/:name/delete" do
+  contacts = YAML.load_file("contacts.yml")
+  contact_name = params[:name]
 
+  contacts.delete(contact_name)
+  File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
+  redirect "/contacts"
+end

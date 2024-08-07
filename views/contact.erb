@@ -1,11 +1,11 @@
 <div class="container">
 	<div id="subheader">
-		<h1><%= @contact_name %></h1>
+		<h1><%= @details["name"] %></h1>
 		<div>
 			<a href="/" class="btn btn-link btn-md">
 				Back
 			</a>
-			<a href="/contacts/<%= @contact_name %>/edit" class="btn btn-primary btn-md">
+			<a href="/contacts/<%= params[:id] %>/edit" class="btn btn-primary btn-md">
 				Edit
 			</a>
 		</div>

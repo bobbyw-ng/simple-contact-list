@@ -4,7 +4,11 @@
 	</div>
 
 	<div id="contact-details">
-		<form>
+		<form action="/contacts/new" method="post">
+			<div class="form-group">
+	  			<label for="contact-name">Name</label>
+	  			<input class="form-control" type="text" id="contact_name" name="contact_name"></input>
+	  		</div>
 	  		<div class="form-group">
 	  			<label for="phone">Phone</label>
 	  			<input class="form-control" type="tel" id="phone" name="phone" value=""></input>
