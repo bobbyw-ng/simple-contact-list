@@ -16,8 +16,10 @@
   	</header>
     <main>
       <% if session[:message] %>
-        <div class="message">
-          <p><%= session.delete(:message) %></p>
+        <div class="container">
+          <div class="message">
+            <p class="message-text"><%= session.delete(:message) %></p>
+          </div>
         </div>
       <% end %>
     	<%= yield %>

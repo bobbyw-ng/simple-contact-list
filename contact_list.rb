@@ -66,6 +66,7 @@ post "/contacts/new" do
   contacts[generate_id] = {"name" => contact_name, "phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
+  session[:message] = "#{contact_name} was created"
   redirect "/contacts"
 end
 
@@ -90,6 +91,8 @@ post "/contacts/:id/edit" do
   contacts[params[:id].to_i] = {"name" => contact_name, "phone" => phone, "email" => email, "address" => address, "category" => category}
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
 
+  session[:message] = "#{contact_name} was updated"
+
   redirect "/contacts/#{params[:id]}"
 end
 
@@ -98,10 +101,12 @@ post "/contacts/:id/delete" do
   contacts = YAML.load_file("contacts.yml")
   contact_id = params[:id]
 
+  contact_name = contacts.fetch(params[:id].to_i)["name"]
+
   contacts.delete(contact_id.to_i)
-  puts contact_id
-  puts contacts
   File.open("contacts.yml", 'w') { |f| YAML.dump(contacts, f) }
+
+  session[:message] = "#{contact_name} was deleted"
 
   redirect "/contacts"
 end
