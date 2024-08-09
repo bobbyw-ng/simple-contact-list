@@ -37,6 +37,15 @@ get "/contacts/new" do
   erb :new, layout: :layout
 end
 
+# select a category to display
+get "/contacts/category" do
+  contacts = YAML.load_file("contacts.yml")
+  @category = params[:category].capitalize
+  @selected_names = contacts.select { |id, details| details["category"] == params[:category] }.values.map { |details| details["name"] }
+  
+  erb :contacts_by_category, layout: :layout
+end
+
 # view a single contact
 get "/contacts/:id" do
   contacts = YAML.load_file("contacts.yml")
@@ -101,3 +110,6 @@ post "/contacts/:id/delete" do
 
   redirect "/contacts"
 end
+
+
+

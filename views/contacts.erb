@@ -20,4 +20,15 @@
 			</li>
 		<% end %>
 	</ul>
+
+  <form action="/contacts/category" method="get">
+    <label for="category">View contacts by category:</label>
+    <select name="category" id="category">
+      <option value="friends">Friends</option>
+      <option value="family">Family</option>
+      <option value="work">Work</option>
+    </select>
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+  </form>
 </div>
+
